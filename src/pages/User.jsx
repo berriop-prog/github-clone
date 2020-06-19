@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import './User.scss';
 
 class User extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -26,13 +26,12 @@ class User extends Component {
         <nav className="navbar navbar-light bg-light">
           <img src="#" width="30" height="30" alt="#" loading="lazy" />
         </nav>
-
-        <div className="container-xl">
-          
-          
-          
+        <div className="container-user">
+          <div className="item-2">hola</div>
+          <div className="item-3">hola2</div>
+          <div className="item-4">hola3</div>
+          <div className="item-5">hola4</div>
         </div>
-       
       </div>
     );
   }

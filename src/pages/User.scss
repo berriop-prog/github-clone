@@ -1,0 +1,27 @@
+.container-user {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	grid-template-rows: 1fr 1fr;
+	grid-gap: 10px 10px;
+    border: 5px solid red;
+}
+
+.item-2 {    
+    border: 2px solid green;
+	grid-area: 1 / 1 / 2 / 2;
+}
+
+.item-3 {    
+    border: 2px solid green;
+	grid-area: 2 / 1 / 3 / 2;
+}
+
+.item-4 {    
+    border: 2px solid green;
+	grid-area: 1 / 2 / 2 / 3;
+}
+
+.item-5 {    
+    border: 2px solid green;
+	grid-area: 2 / 2 / 3 / 3;
+}
