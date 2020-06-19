@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import IdUser from '../components/IdUser/IdUser';
+import Search from '../components/Search/Search';
+import UserDescription from "../components/UserDescription/UserDescription";
+import Respository from '../components/Respository/Respository';
 import './User.scss';
 
 class User extends Component {
@@ -27,11 +31,24 @@ class User extends Component {
           <img src="#" width="30" height="30" alt="#" loading="lazy" />
         </nav>
         <div className="container-user">
-          <div className="item-2">hola</div>
-          <div className="item-3">hola2</div>
-          <div className="item-4">hola3</div>
-          <div className="item-5">hola4</div>
-        </div>
+          <div className="item-2">
+            <IdUser />            
+          </div>
+          <div className="item-3">
+            <UserDescription />
+          </div>
+          <div className="item-4">
+            <Search
+              label={'Buscador'}
+              id={'search'}
+              ariaLabel={'Search'}
+              placeholder={'Buscar en los repositorios'}
+            />
+          </div>
+          <div className="item-5">
+            <Respository />
+          </div>
+        </div>        
       </div>
     );
   }
