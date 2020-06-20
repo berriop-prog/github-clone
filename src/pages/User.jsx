@@ -32,10 +32,19 @@ class User extends Component {
         </nav>
         <div className="container-user">
           <div className="item-2">
-            <IdUser />            
+            <IdUser
+            avatar_url="avatar"
+            name="Name"
+            login="Login"
+             />            
           </div>
           <div className="item-3">
-            <UserDescription />
+            <UserDescription
+            bio="bio"
+            company="company"
+            location="local"
+            blog="blog"
+            />
           </div>
           <div className="item-4">
             <Search

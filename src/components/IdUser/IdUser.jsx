@@ -1,19 +1,18 @@
 import React from 'react';
 
-const IdUser = ({ language, name, description }) => {
+const IdUser = ({ name, login, avatar_url }) => {
   return (
     <div className="idUser-container">
-    <img src={'/src/assets/Octocat.png'} alt="octocat" />
-            <div>
-              <h1>
-                {' '}
-                <span> nombre</span>
-              </h1>
-              <p>Nickname</p>
-              <button type="button" className="btn btn-light">
-                Follow
-              </button>
-            </div>
+      <img src={avatar_url} alt="octocat" />
+      <div>
+        <h3 className="name">
+          <span>{name}</span>
+        </h3>
+        <p className="login">{login}</p>
+        <button type="button" className="btn btn-light">
+          Follow
+        </button>
+      </div>
     </div>
   );
 };

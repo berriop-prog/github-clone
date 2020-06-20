@@ -1,14 +1,12 @@
 import React from 'react';
 
-const UserDescription = ({ language, name, description }) => {
+const UserDescription = ({ bio, company, location, blog, organizations }) => {
   return (
-    <div className="repo-container">
-      <h3 className="name"><span> {name} hola</span></h3>
-      <p className="description">{description} xx</p>          
-      <p className="mb-0 f6 text-gray">
-       <span className="d-inline-block mr-3"> punto</span>
-       <span className="language">{language} js</span>
-      </p>
+    <div className="descrip-container">
+     <p className="bio">{bio}</p>
+     <p className="company">{company}</p>
+     <p className="location">{location}</p>
+     <p className="blog">{blog}</p>
     </div>
   );
 };
