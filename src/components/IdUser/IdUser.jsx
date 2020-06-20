@@ -3,12 +3,12 @@ import React from 'react';
 const IdUser = ({ name, login, avatar_url }) => {
   return (
     <div className="idUser-container">
-      <img src={avatar_url} alt="octocat" />
+      {avatar_url && (<img src={avatar_url} alt="octocat" width="241px" height="241px" />)}
       <div>
         <h3 className="name">
-          <span>{name}</span>
+          {name && (<span>{name}</span>)}
         </h3>
-        <p className="login">{login}</p>
+        {login && (<p className="login">{login}</p>)}
         <button type="button" className="btn btn-light">
           Follow
         </button>
