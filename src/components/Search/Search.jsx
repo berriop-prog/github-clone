@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import './Search.scss'
 
 class Search  extends Component {
 
@@ -32,18 +33,18 @@ class Search  extends Component {
   render() {
     return (
       <form>
-        <div className="row">
-          <div className="form-group col-md-8">
+        <div className="search row">
+          <div className="search__form form">
             <input
               type="text"
-              className="form-control form-control-lg"
+              className="form__control  input"
               placeholder="GitHub user"
               onChange={(e) => this.onInputChange(e)}
             />
           </div>
 
-          <div className="form-group col-md-4">
-            <button className="btn btn-secondary" type="button" onClick={this.searchUser}>
+          <div className="form__control  col-md-4 py-3">
+            <button className="button__form btn" type="button" onClick={this.searchUser}>
               See GitHub
             </button>
           </div>

@@ -1,0 +1,46 @@
+.idUser {
+  width: 225px;
+  padding: 0;
+  margin: 0;
+
+  img {
+    width: 224px;
+    height: 224px;
+    border-radius: 200px 200px 200px 200px;
+  }
+
+  &__nameUser {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 30px;
+    color: rgb(36, 41, 46);
+    padding-top: 16px;
+  }
+
+  &__login {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 24px;
+    color: #666;
+  }
+
+  .btn {
+    color: #24292e;
+    background-color: #fafbfc;
+    border-color: rgba(27, 31, 35, 0.15);
+    box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04),
+      inset 0 1px 0 hsla(0, 0%, 100%, 0.25);
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    position: relative;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid;
+    border-radius: 6px;
+  }
+}
