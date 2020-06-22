@@ -40,7 +40,6 @@ class Repository extends Component {
     const formattedDate = updatedAtObject.toLocaleString('default', {
       month:'short', day:'numeric', year:'numeric'
     })
-    console.log(formattedDate); 
   return (
     <div className="repository p-3">
       <h3 className="repository__reponame reponame">
@@ -54,7 +53,7 @@ class Repository extends Component {
       <div className="repository__info info mb-0">
         {
           colors && colors[language] && colors[language].color && (
-            <span className="info__color mr-3" style={{backgroundColor: colors[language].color}}></span>
+            <span className="info__color" style={{backgroundColor: colors[language].color}}></span>
           )
         }
         <span className="info__text">{language}</span>
