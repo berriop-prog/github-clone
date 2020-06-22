@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import User from './pages/User';
+import Home from './pages/Home/Home';
+import User from './pages/User/User';
 
 const App = () => {
   return (

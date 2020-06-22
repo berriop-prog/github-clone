@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import IdUser from '../components/IdUser/IdUser';
-import Search from '../components/Search/Search';
-import UserDescription from '../components/UserDescription/UserDescription';
-import Respository from '../components/Respository/Respository';
+import IdUser from '../../components/IdUser/IdUser';
+import Search from '../../components/Search/Search';
+import UserDescription from '../../components/UserDescription/UserDescription';
+import Respository from '../../components/Respository/Respository';
+import { MarkGithubIcon } from '@primer/octicons-react';
+import fetchGithubData from '../../common/js/fetchGithubData.js';
 import './User.scss';
 
 class User extends Component {
@@ -17,19 +19,13 @@ class User extends Component {
 
   async componentDidMount() {
     const { githubUser } = this.state;
-    const userProfile = await this.getGithubData(githubUser);
-    const userRepos = await this.getGithubData(`${githubUser}/repos`);
+    const userProfile = await fetchGithubData(`users/${githubUser}`);
+    const userRepos = await fetchGithubData(`users/${githubUser}/repos`);
     this.setState({
       githubUserData: userProfile,
       githubUserRepos: userRepos,
     });
   }
-
-  getGithubData = async (endPoint) => {
-    const response = await fetch(`https://api.github.com/users/${endPoint}`);
-    const body = await response.json();
-    return body;
-  };
 
   render() {
     const self = this || {}; //verificacion 37-41
@@ -43,11 +39,9 @@ class User extends Component {
     const name = (githubUserData && githubUserData.name) || '';
     const login = (githubUserData && githubUserData.login) || '';
     const githubUserRepos = (state && state.githubUserRepos) || [];
-
-    console.log(githubUserData);
     return (
       <div>
-        <header className=" py-lg-0 flex-wrap"></header>
+        <header className=" py-lg-0 flex-wrap"><MarkGithubIcon size={32} className="icon" /></header>
         <div className="container-user">
           <div className="user-div">
             <IdUser avatar_url={avatar_url} name={name} login={login} />
@@ -67,23 +61,21 @@ class User extends Component {
               placeholder={'Buscar en los repositorios'}
             />
             {githubUserRepos.map((repo, key) => {
-              console.log(repo);
               const language = (repo && repo.language) || '';
               const repoName = (repo && repo.name) || '';
               const html_url = (repo && repo.html_url) || '';
               const description = (repo && repo.description) || '';
-              const branches_url = (repo && repo.branches_url) || '';
               const updated_at = (repo && repo.updated_at) || '';
               const license = (repo && repo.license) || {};
               const name = (license && license.name) || '';
               return (
                 <Respository
                   key={key}
+                  login={login}
                   repoName={repoName}
                   language={language}
                   html_url={html_url}
                   description={description}
-                  branches_url={branches_url}
                   updated_at={updated_at}
                   license={name}
                 />

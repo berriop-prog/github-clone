@@ -1,3 +1,5 @@
+@import '../../common/scss/vars';
+
 .home {
   margin-top: 2rem;
   border-radius: 6px;
@@ -6,7 +8,7 @@
     border-radius: 6px;
 
     .title {
-      color: #0366d6;
+      color: $github-blue;
       text-decoration: none;
       font-size: 24px;
       line-height: 1.5;

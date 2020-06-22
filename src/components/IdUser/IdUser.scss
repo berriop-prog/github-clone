@@ -1,3 +1,5 @@
+@import '../../common/scss/vars';
+
 .idUser {
   width: 225px;
   padding: 0;
@@ -26,7 +28,7 @@
   }
 
   .btn {
-    color: #24292e;
+    color: $github-black;
     background-color: #fafbfc;
     border-color: rgba(27, 31, 35, 0.15);
     box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04),

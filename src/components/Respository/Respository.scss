@@ -1,3 +1,5 @@
+@import '../../common/scss/vars';
+
 .repository {
   width: 778px;
   display: flex;
@@ -6,7 +8,7 @@
   border-bottom: 1px solid #e1e4e8;
 
   &__reponame {
-    color: #0366d6;
+    color: $github-blue;
     text-decoration: none;
     font-size: 20px;
     line-height: 1.5;
@@ -36,15 +38,15 @@
       color: #586069 !important;
       margin: 0;
       padding: 0;
+    }    
 
-      &__text-color {
-        position: relative;
-        top: 1px;
-        display: inline-block;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-      }
+    &__color {
+      position: relative;
+      top: 1px;
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
     }
   }
 }
