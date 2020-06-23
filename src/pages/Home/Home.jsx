@@ -34,7 +34,9 @@ class Home extends Component {
       <div className="home container">
         <div className="home__search search__box jumbotron mt-5">
           <h1 className="title lead text-center"> <OctofaceIcon size={28} /> Search GitHub User </h1>
-          <Search 
+          <Search
+            placeholder="GitHub user"
+            buttonText="See GitHub" 
             onInputChange={this.onInputChange} 
             onSearch={this.searchUser} />
         </div>

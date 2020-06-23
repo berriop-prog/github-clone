@@ -37,9 +37,9 @@ class Repository extends Component {
     const state = (self && self.state) || {};
     const branches = (state && state.branches) || 0;
     const updatedAtObject = new Date(updated_at);
-    const formattedDate = updatedAtObject.toLocaleString('default', {
+    const formattedDate = updatedAtObject.toLocaleString('en-US', {
       month:'short', day:'numeric', year:'numeric'
-    })
+    });
   return (
     <div className="repository p-3">
       <h3 className="repository__reponame reponame">
