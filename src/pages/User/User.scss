@@ -21,7 +21,7 @@ header {
   padding: 0 24px 0 24px;
 }
 .user-div {
-  width: 271px;
+  width: 275px;
   margin: 10px;
   padding: 0 16px;
 }
@@ -35,11 +35,11 @@ header {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
-  border: 5px solid salmon;
 }
 .summary-select {
+  margin-left: 7rem;
+  width: 136px;
   color: #24292e;
-  align-items: flex-end;
   background-color: #fafbfc;
   border-color: rgba(27, 31, 35, 0.15);
   box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04),

@@ -15,7 +15,7 @@ class User extends Component {
       githubUserRepos: null,
       findRepo: '',
       languages: [],
-      language: ''
+      language: '',
     };
   }
 
@@ -25,8 +25,10 @@ class User extends Component {
     const userRepos = await fetchGithubData(`users/${githubUser}/repos`);
     const languages = ['All'];
     if (userRepos) {
-      userRepos.forEach(repo => {
-        const takenLanguages = languages.find(lang => lang.toLowerCase() === repo.language.toLowerCase());
+      userRepos.forEach((repo) => {
+        const takenLanguages = languages.find(
+          (lang) => lang.toLowerCase() === repo.language.toLowerCase()
+        );
         if (!takenLanguages) {
           languages.push(repo.language);
         }
@@ -34,7 +36,7 @@ class User extends Component {
       this.setState({
         githubUserData: userProfile,
         githubUserRepos: userRepos,
-        languages: languages
+        languages: languages,
       });
     }
   }
@@ -42,18 +44,18 @@ class User extends Component {
   onInputChange = (e) => {
     const value = e.target.value;
     this.setState({
-      findRepo: value
+      findRepo: value,
     });
-  }
-  
+  };
+
   filterReposBySearch = (repos = []) => {
     const self = this || {}; //verificacion 37-41
     const state = (self && self.state) || {};
     const findRepo = (state && state.findRepo) || '';
-    return repos.filter(repo => (
+    return repos.filter((repo) =>
       repo.name.toLowerCase().includes(findRepo.toLowerCase())
-    ));
-  }
+    );
+  };
 
   filterReposByLanguage = () => {
     const self = this || {}; //verificacion 37-41
@@ -61,17 +63,17 @@ class User extends Component {
     const language = (state && state.language) || '';
     const githubUserRepos = (state && state.githubUserRepos) || [];
     if (language === 'All') return githubUserRepos;
-    return githubUserRepos.filter(repo => (
+    return githubUserRepos.filter((repo) =>
       repo.language.toLowerCase().includes(language.toLowerCase())
-    ));
-  }
+    );
+  };
 
   language = (e) => {
     const value = e.target.value;
     this.setState({
-      language: value
+      language: value,
     });
-  }
+  };
 
   render() {
     const self = this || {}; //verificacion 37-41
@@ -102,13 +104,16 @@ class User extends Component {
           <div className="repos-div">
             <div className="user-search">
               <select className="summary-select" onChange={this.language}>
-                {languages.map((language, key) => (<option key={key}>{language}</option>))}
+                {languages.map((language, key) => (
+                  <option key={key}>{language}</option>
+                ))}
               </select>
               <Search
-                ariaLabel='Search'
+                className="search-box"
+                ariaLabel="Search"
                 placeholder="Find a repository"
-                onInputChange={this.onInputChange} 
-                />
+                onInputChange={this.onInputChange}
+              />
             </div>
             {repos.map((repo, key) => {
               const language = (repo && repo.language) || '';
