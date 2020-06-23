@@ -101,7 +101,7 @@ class User extends Component {
           </div>
           <div className="repos-div">
             <div className="user-search">
-              <select className="button" onChange={this.language}>
+              <select className="summary-select" onChange={this.language}>
                 {languages.map((language, key) => (<option key={key}>{language}</option>))}
               </select>
               <Search

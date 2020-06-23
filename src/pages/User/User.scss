@@ -4,14 +4,14 @@ header {
   height: 53px;
   background-color: $github-black;
 }
-.icon {  
+.icon {
   height: 32;
-  width: 32; 
+  width: 32;
   font-weight: 600;
   color: #fff;
-  white-space: nowrap;  
-  vertical-align: middle!important;
-  margin: 10px; 
+  white-space: nowrap;
+  vertical-align: middle !important;
+  margin: 10px;
 }
 .container-user {
   display: flex;
@@ -31,9 +31,30 @@ header {
   margin: 10px;
   padding: 8px 0;
 }
-.user-search{
+.user-search {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: center;
+  border: 5px solid salmon;
+}
+.summary-select {
+  color: #24292e;
+  align-items: flex-end;
+  background-color: #fafbfc;
+  border-color: rgba(27, 31, 35, 0.15);
+  box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04),
+    inset 0 1px 0 hsla(0, 0%, 100%, 0.25);
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  display: inline-block;
+  padding: 5px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid;
+  border-radius: 6px;
 }
 
 button {
