@@ -26,10 +26,12 @@ class User extends Component {
     const languages = ['All'];
     if (userRepos) {
       userRepos.forEach((repo) => {
-        const takenLanguages = languages.find(
-          (lang) => lang.toLowerCase() === repo.language.toLowerCase()
-        );
-        if (!takenLanguages) {
+        const repoLanguage = (repo && repo.language) || '';
+        const takenLanguages = languages.find((lang) => {
+          const lowerCasedLanguage = (repoLanguage) ? repoLanguage.toLowerCase() : repoLanguage;
+          return lang.toLowerCase() === lowerCasedLanguage;
+        });
+        if (!takenLanguages && repoLanguage) {
           languages.push(repo.language);
         }
       });
@@ -63,9 +65,10 @@ class User extends Component {
     const language = (state && state.language) || '';
     const githubUserRepos = (state && state.githubUserRepos) || [];
     if (language === 'All') return githubUserRepos;
-    return githubUserRepos.filter((repo) =>
-      repo.language.toLowerCase().includes(language.toLowerCase())
-    );
+    return githubUserRepos.filter((repo) => {
+      const repoLanguage = (repo && repo.language) || '';
+      return repoLanguage.toLowerCase().includes(language.toLowerCase());
+    });
   };
 
   language = (e) => {
@@ -89,6 +92,7 @@ class User extends Component {
     const reposByLanguage = self.filterReposByLanguage();
     const repos = self.filterReposBySearch(reposByLanguage);
     const languages = (state && state.languages) || [];
+    const language = (state && state.language) || '';
     return (
       <div>
         <div className="container-user">
@@ -98,22 +102,21 @@ class User extends Component {
               bio={bio}
               company={company}
               location={location}
-              blog={blog}
-            />
+              blog={blog} />
           </div>
           <div className="repos-div">
-            <div className="user-search">
-              <select className="summary-select" onChange={this.language}>
-                {languages.map((language, key) => (
-                  <option key={key}>{language}</option>
-                ))}
-              </select>
+            <div className="user-search">            
               <Search
                 className="search-box"
                 ariaLabel="Search"
                 placeholder="Find a repository"
                 onInputChange={this.onInputChange}
               />
+              <select className="summary-select" onChange={this.language}>                 
+                {languages.map((language, key) => (
+                  <option key={key}>{language}</option>
+                ))}
+              </select>
             </div>
             {repos.map((repo, key) => {
               const language = (repo && repo.language) || '';
