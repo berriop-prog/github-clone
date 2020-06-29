@@ -92,7 +92,7 @@ class User extends Component {
     const reposByLanguage = self.filterReposByLanguage();
     const repos = self.filterReposBySearch(reposByLanguage);
     const languages = (state && state.languages) || [];
-    const language = (state && state.language) || '';
+    //const language = (state && state.language) || '';
     return (
       <div>
         <div className="container-user">
